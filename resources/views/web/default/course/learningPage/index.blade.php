@@ -17,7 +17,8 @@
             </div>
 
             <div class="learning-page-tabs show">
-                <ul class="nav nav-tabs py-15 d-flex align-items-center justify-content-around" id="tabs-tab" role="tablist">
+                <ul class="nav nav-tabs py-15 d-flex align-items-center justify-content-around" id="tabs-tab"
+                    role="tablist">
                     <li class="nav-item">
                         <a class="position-relative font-14 d-flex align-items-center active" id="content-tab"
                            data-toggle="tab" href="#content" role="tab" aria-controls="content"
@@ -30,7 +31,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="position-relative font-14 d-flex align-items-center" id="quizzes-tab" data-toggle="tab"
+                        <a class="position-relative font-14 d-flex align-items-center" id="quizzes-tab"
+                           data-toggle="tab"
                            href="#quizzes" role="tab" aria-controls="quizzes"
                            aria-selected="false">
                             <i class="learning-page-tabs-icons mr-5">
@@ -41,7 +43,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="position-relative font-14 d-flex align-items-center" id="certificates-tab" data-toggle="tab"
+                        <a class="position-relative font-14 d-flex align-items-center" id="certificates-tab"
+                           data-toggle="tab"
                            href="#certificates" role="tab" aria-controls="certificates"
                            aria-selected="false">
                             <i class="learning-page-tabs-icons mr-5">
@@ -120,6 +123,27 @@
         var cantStartQuizToastMsgLang = '{{ trans('quiz.cant_start_quiz') }}';
         var learningPageEmptyContentTitleLang = '{{ trans('update.learning_page_empty_content_title') }}';
         var learningPageEmptyContentHintLang = '{{ trans('update.learning_page_empty_content_hint') }}';
+
+        $(document).ready(function () {
+            var peepSound = new Audio("peep.mp3"); // replace with your sound file
+            var timeOut = setTimeout(function () {
+                document.getElementById("videoPlayer35_html5_api").pause();
+                peepSound.play();
+                alert("You have not made any interaction!");
+            }, 60000); // 60 seconds in milliseconds
+
+            // reset timer on any user interaction
+            $(document).on("mousemove keydown mousedown touchstart", function () {
+                clearTimeout(timeOut);
+                timeOut = setTimeout(function () {
+                    document.getElementById("videoPlayer35_html5_api").pause();
+                    peepSound.play();
+                    alert("You have not made any interaction!");
+                }, 60000);
+            });
+        });
+
+
     </script>
     <script type="text/javascript" src="/assets/default/vendors/dropins/dropins.js"></script>
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>

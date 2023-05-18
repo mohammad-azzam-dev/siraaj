@@ -143,7 +143,7 @@
         }
         $(document).ready(function () {
             let peepSound = new Audio("assets/peep.mp3"); // replace with your sound file
-            let time = 10000;
+            let time = 60000;
             var timeOut = setTimeout(function () {
                 // document.getElementById("videoPlayer35_html5_api").pause();
                 // document.getElementsByTagName("video")[0].pause();

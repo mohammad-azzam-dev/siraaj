@@ -136,7 +136,8 @@
                 text: 'لم تقم بأي تفاعل!',
                 bgColor: '#f63c3c',
                 textColor: 'white',
-                position: 'top-middle',
+                timeout: 0,
+                position: 'top-center',
                 icon: 'error'
             });
         }

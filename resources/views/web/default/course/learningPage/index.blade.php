@@ -132,15 +132,14 @@
         }
         $(document).ready(function () {
             let peepSound = new Audio("peep.mp3"); // replace with your sound file
-
+            let time = 10000;
             var timeOut = setTimeout(function () {
                 // document.getElementById("videoPlayer35_html5_api").pause();
                 // document.getElementsByTagName("video")[0].pause();
-
+                alert("لم تقم بأي تفاعل!");
                 pauseVideos()
                 peepSound.play();
-                alert("لم تقم بأي تفاعل!");
-            }, 60000); // 60 seconds in milliseconds
+            }, time); // 60 seconds in milliseconds
 
             // reset timer on any user interaction
             $(document).on("mousemove keydown mousedown touchstart", function () {
@@ -148,10 +147,11 @@
                 timeOut = setTimeout(function () {
                     // document.getElementById("videoPlayer35_html5_api").pause()
                     // document.getElementsByTagName("video")[0].pause();
+                    alert("لم تقم بأي تفاعل!");
                     pauseVideos()
                     peepSound.play();
-                    alert("لم تقم بأي تفاعل!");
-                }, 60000);
+
+                }, time);
             });
         });
 

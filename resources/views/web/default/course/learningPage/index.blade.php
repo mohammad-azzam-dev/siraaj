@@ -123,14 +123,22 @@
         var cantStartQuizToastMsgLang = '{{ trans('quiz.cant_start_quiz') }}';
         var learningPageEmptyContentTitleLang = '{{ trans('update.learning_page_empty_content_title') }}';
         var learningPageEmptyContentHintLang = '{{ trans('update.learning_page_empty_content_hint') }}';
-
+        function pauseVideos(){
+            Array.prototype.forEach.call(iframes, iframe => {
+                iframe.contentWindow.postMessage(JSON.stringify({ event: 'command',
+                    func: 'pauseVideo' }), '*');
+            });
+        }
         $(document).ready(function () {
-            var peepSound = new Audio("peep.mp3"); // replace with your sound file
+            let peepSound = new Audio("peep.mp3"); // replace with your sound file
+
             var timeOut = setTimeout(function () {
                 // document.getElementById("videoPlayer35_html5_api").pause();
-                document.getElementsByTagName("video")[0].pause();
+                // document.getElementsByTagName("video")[0].pause();
+
+                pauseVideos()
                 peepSound.play();
-                alert("You have not made any interaction!");
+                alert("لم تقم بأي تفاعل!");
             }, 60000); // 60 seconds in milliseconds
 
             // reset timer on any user interaction
@@ -138,10 +146,10 @@
                 clearTimeout(timeOut);
                 timeOut = setTimeout(function () {
                     // document.getElementById("videoPlayer35_html5_api").pause()
-                    document.getElementsByTagName("video")[0].pause();
-
+                    // document.getElementsByTagName("video")[0].pause();
+                    pauseVideos()
                     peepSound.play();
-                    alert("You have not made any interaction!");
+                    alert("لم تقم بأي تفاعل!");
                 }, 60000);
             });
         });

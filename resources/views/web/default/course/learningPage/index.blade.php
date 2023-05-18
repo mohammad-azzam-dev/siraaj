@@ -127,7 +127,8 @@
         $(document).ready(function () {
             var peepSound = new Audio("peep.mp3"); // replace with your sound file
             var timeOut = setTimeout(function () {
-                document.getElementById("videoPlayer35_html5_api").pause();
+                // document.getElementById("videoPlayer35_html5_api").pause();
+                document.getElementsByTagName("video")[0].pause();
                 peepSound.play();
                 alert("You have not made any interaction!");
             }, 60000); // 60 seconds in milliseconds
@@ -136,7 +137,9 @@
             $(document).on("mousemove keydown mousedown touchstart", function () {
                 clearTimeout(timeOut);
                 timeOut = setTimeout(function () {
-                    document.getElementById("videoPlayer35_html5_api").pause();
+                    // document.getElementById("videoPlayer35_html5_api").pause()
+                    document.getElementsByTagName("video")[0].pause();
+
                     peepSound.play();
                     alert("You have not made any interaction!");
                 }, 60000);

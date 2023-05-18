@@ -124,6 +124,7 @@
         var learningPageEmptyContentTitleLang = '{{ trans('update.learning_page_empty_content_title') }}';
         var learningPageEmptyContentHintLang = '{{ trans('update.learning_page_empty_content_hint') }}';
         function pauseVideos(){
+            var iframes = document.querySelectorAll('iframe');
             Array.prototype.forEach.call(iframes, iframe => {
                 iframe.contentWindow.postMessage(JSON.stringify({ event: 'command',
                     func: 'pauseVideo' }), '*');

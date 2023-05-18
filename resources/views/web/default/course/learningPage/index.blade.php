@@ -130,13 +130,23 @@
                     func: 'pauseVideo' }), '*');
             });
         }
+        function sendMessageTimeOut(){
+            $.toast({
+                heading: 'هل مازلت معنا',
+                text: 'لم تقم بأي تفاعل!',
+                bgColor: '#f63c3c',
+                textColor: 'white',
+                position: 'top-middle',
+                icon: 'error'
+            });
+        }
         $(document).ready(function () {
             let peepSound = new Audio("peep.mp3"); // replace with your sound file
             let time = 10000;
             var timeOut = setTimeout(function () {
                 // document.getElementById("videoPlayer35_html5_api").pause();
                 // document.getElementsByTagName("video")[0].pause();
-                alert("لم تقم بأي تفاعل!");
+                sendMessageTimeOut();
                 pauseVideos()
                 peepSound.play();
             }, time); // 60 seconds in milliseconds
@@ -147,7 +157,7 @@
                 timeOut = setTimeout(function () {
                     // document.getElementById("videoPlayer35_html5_api").pause()
                     // document.getElementsByTagName("video")[0].pause();
-                    alert("لم تقم بأي تفاعل!");
+                    sendMessageTimeOut();
                     pauseVideos()
                     peepSound.play();
 
